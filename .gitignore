@@ -1,0 +1,58 @@
+# ---------------------------------
+# Python / Virtual Environment
+# ---------------------------------
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# ---------------------------------
+# Streamlit & ChromaDB Local State
+# ---------------------------------
+chroma_db/
+.index_state
+index_state.json
+unreadable_books.json
+
+# ---------------------------------
+# Private User Data / App Data
+# ---------------------------------
+users.json
+sessions.json
+favourites.json
+feedback.json
+approved_practices.json
+daily_reflection.json
+dharma_app.db
+
+# ---------------------------------
+# Uploaded Guidance Media
+# (kept out of GitHub for privacy)
+# ---------------------------------
+guidance_media/
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# ---------------------------------
+# Books (Private Library)
+# ---------------------------------
+books/*
+!books/.gitkeep
+
+# ---------------------------------
+# Logs
+# ---------------------------------
+logs/
+*.log
+
+# ---------------------------------
+# Misc
+# ---------------------------------
+*.tmp
+*.bak

@@ -1,0 +1,10 @@
+streamlit
+openai
+chromadb
+pypdf
+ebooklib
+pytesseract
+pdf2image
+Pillow
+pandas
+numpy
