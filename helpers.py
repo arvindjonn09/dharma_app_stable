@@ -44,7 +44,8 @@ def save_feedback(feedback_file: str, items):
 
 def get_daily_reflection(age_group, daily_reflection_file: str):
     """
-    Return a short, gentle reflection line for the day.
+    Return a tuple of (text, image_url) for the day.
+    Supports legacy string-only entries.
     """
     overrides = {}
     try:
@@ -53,13 +54,18 @@ def get_daily_reflection(age_group, daily_reflection_file: str):
     except Exception:
         overrides = {}
 
+    def _extract(val):
+        if isinstance(val, dict):
+            return val.get("text"), val.get("image_url")
+        return val, None
+
     if isinstance(overrides, dict):
         if age_group == "child" and overrides.get("child"):
-            return overrides["child"]
+            return _extract(overrides["child"])
         if age_group == "adult" and overrides.get("adult"):
-            return overrides["adult"]
+            return _extract(overrides["adult"])
         if overrides.get("both"):
-            return overrides["both"]
+            return _extract(overrides["both"])
 
     adult_reflections = [
         "Pause once today and remember: every small act of kindness can be placed at the Lord's feet like a flower.",
@@ -85,7 +91,7 @@ def get_daily_reflection(age_group, daily_reflection_file: str):
     else:
         items = adult_reflections
 
-    return items[idx % len(items)]
+    return items[idx % len(items)], None
 
 
 def get_daily_focus(age_group):

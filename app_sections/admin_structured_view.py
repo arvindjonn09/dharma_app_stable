@@ -81,7 +81,6 @@ def render_admin_structured_view():
             full_content = content.strip() + (f"\n\n{desc.strip()}" if desc.strip() else "")
             extra_paths = {}
             try:
-                import os
                 import datetime
                 GUIDANCE_AUDIO_DIR = "guidance_audio"
                 GUIDANCE_MEDIA_DIR = "guidance_media"
